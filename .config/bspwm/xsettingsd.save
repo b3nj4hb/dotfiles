@@ -1,0 +1,3 @@
+Net/ThemeName "nombre_del_tema"
+#Net/IconThemeName "nombre_del_tema_de_iconos"
+#Gtk/CursorThemeName "nombre_del_tema_del_cursor"

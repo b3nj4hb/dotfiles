@@ -1,0 +1,33 @@
+#! /bin/sh
+#󰑊
+bspc monitor eDP -d . . . . .
+bspc monitor HDMI-A-0 -d . . . . .
+
+bspc config border_width        2
+bspc config window_gap          6
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# espera 1 segundo para que se carge y luego aplica la config
+(sleep 0.1 && bspc config top_padding 36) &
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+processes=("picom" "polybar" "eww" "sxhkd" "dunst")
+for process in "${processes[@]}"; do
+  if pidof -q "$process"; then
+    pkill -9 -x "$process" > /dev/null; sleep 0.1
+  fi
+done
+
+polybar example &
+dunst &
+feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/nord &
+picom --config /home/benjadhb/.config/picom/picom.conf.example &
+sxhkd

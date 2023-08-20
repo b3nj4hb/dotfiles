@@ -1,0 +1,212 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	alacritty
+
+# program launcher
+super + @space
+	rofi -show drun -show-icons
+
+#Rofi's power menu mode:
+super + {_,alt + } @space
+	rofi -show power-menu -modi power-menu:rofi-power-menu
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# aplicaciones
+alt + shift + {b,p,t,w,s,l}
+	{brave,\
+	pavucontrol,\
+	thunar,\
+	whatsapp-nativefier,\
+	spotify-launcher,\
+	pulsemixer,\
+	}
+
+# mostrar ayuda
+alt + F1
+	awk '/^[a-z]/ && last {print "<small>",$0,"\t",last,"</small>"} {last=""} /^#/{last=$0}' /home/benjadhb/.config/sxhkd/sxhkdrc | \
+	column -t -s $'\t' | rofi -dmenu -i -markup-rows -no-show-icons -width 1000 -lines 15 -yoffset 40
+
+# Change transparency on focused window
+ctrl + alt {plus,minus,t}
+        {picom-trans -c -o +3, picom-trans -c -o -1, picom-trans -c -d}
+
+#
+# bspwm hotkeys
+#
+
+# sistema
+super + ctrl + alt + {q,r}
+	systemctl {poweroff,reboot}
+
+# lockscreen
+#super + l
+#	physlock -d
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# kill
+alt + shift + k
+	xkill
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+# cambiar wallpaper
+super + alt + w
+	feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/nord
+
+# screenshot de toda la pantalla a un directorio
+shift + Print
+        scrot --silent "$(xdg-user-dir PICTURES)/ScreenShots"/%F_%T.png; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
+
+# screenshot de toda la pantalla al portapapeles
+Print
+        scrot - --silent | xclip -selection clipboard -target image/png; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
+
+# screenshot de una seleccion al portapapeles y al directorio
+#ctrl + Print
+#        scrot -s --line mode=edge --silent "$(xdg-user-dir PICTURES)/ScreenShots"/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
+
+# screenshot de una seleccion a un directorio (reemplazable)
+ctrl + shift + Print
+        scrot -s --line mode=edge --silent "$(xdg-user-dir PICTURES)/ScreenShots"/%F_%T.png; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
+
+# screenshot de una seleccion al portapapeles y al directorio
+ctrl + Print
+        scrot -s --line mode=edge --silent "$(xdg-user-dir PICTURES)/ScreenShots"/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
+
+# ocultar barra
+super + i
+	polybar-msg cmd hide; bspc config top_padding 0
+
+# mostrar barra
+super + u
+	polybar-msg cmd show; bspc config top_padding 36
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Increase brightness
+XF86MonBrightnessUp
+    brightnessctl set +10% #;dunstify -u low "Brightness increased"
+
+# Decrease brightness
+XF86MonBrightnessDown
+    brightnessctl set 10%- #;dunstify -u low "Brightness decreased"
+
+# Increase volume
+XF86AudioRaiseVolume
+    amixer -q sset Master 5%+ #;dunstify -u low "Volume increased"
+
+# Decrease volume
+XF86AudioLowerVolume
+    amixer -q sset Master 5%- #;dunstify -u low "Volume decreased"
+
+# Mute/unmute volume
+XF86AudioMute
+    amixer -q sset Master toggle #;dunstify -u low "Volume muted/unmuted"
+
+# Mute/unmute microphone
+XF86AudioMicMute
+    amixer -q sset Capture toggle; #dunstify -u low "Microphone muted/unmuted"
