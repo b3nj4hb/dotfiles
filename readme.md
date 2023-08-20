@@ -8,6 +8,6 @@ Para ver más temas de alacritty guiarse de [aquí](https://github.com/alacritty
 Los wallpapers los saque de este [repo](https://github.com/vinceliuice/WhiteSur-wallpapers)
 
 # Screenshot
-![desktop](images/ss/2023-08-19_21:02:01.png)
+![desktop](misc/ss/2023-08-19_21:02:01.png)
 
 Proximamente más...
