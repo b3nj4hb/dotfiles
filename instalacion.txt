@@ -11,11 +11,14 @@ rm -fr paru
 # instalar bspwm, polybar y alacritty
 paru -S bspwm polybar alacritty sxhkd --noconfirm
 
+# para luego de la instalacion
+dhcpd
+
 # varios
 paru -S brave-bin spotify-launcher visual-studio-code-bin github-cli obsidian obs-studio xreader dbeaver btop --noconfirm
 
 # dependencias
-paru -S unzip cava tty-clock pipes.sh rofi rofi-power-menu xcowsay pulsemixer slickpicker arandr lxappearance picom pamixer brightnessctl alsa-utils xclip scrot feh dunst physlock xkill-shortcut ranger thunar dolphin vlc lsd 
+paru -S unzip cava tty-clock pipes.sh rofi rofi-power-menu xcowsay pulsemixer slickpicker arandr lxappearance picom pamixer brightnessctl alsa-utils xclip scrot feh dunst physlock xkill-shortcut ranger thunar dolphin vlc lsd xdg-user-dirs
 --noconfirm
 
 # no cambiar hora

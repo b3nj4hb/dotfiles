@@ -6,13 +6,17 @@
 super + Return
 	alacritty
 
+# rofi catppuccin
+super + {d,r,p,s}
+	sh $HOME/.config/rofi/bin/{launcher,runner,powermenu}
+
 # program launcher
-super + @space
-	rofi -show drun -show-icons
+#super + @space
+#	rofi -show drun -show-icons
 
 #Rofi's power menu mode:
-super + {_,alt + } @space
-	rofi -show power-menu -modi power-menu:rofi-power-menu
+#super + {_,alt + } @space
+#	rofi -show power-menu -modi power-menu:rofi-power-menu
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -36,6 +40,10 @@ alt + F1
 # Change transparency on focused window
 ctrl + alt {plus,minus,t}
         {picom-trans -c -o +3, picom-trans -c -o -1, picom-trans -c -d}
+
+# lockscreen
+super + x
+	slock
 
 #
 # bspwm hotkeys
@@ -98,12 +106,12 @@ ctrl + Print
         scrot -s --line mode=edge --silent "$(xdg-user-dir PICTURES)/ScreenShots"/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'; dunstify -u low 'Screenshot' 'Se capturó la pantalla'
 
 # ocultar barra
-super + i
-	polybar-msg cmd hide; bspc config top_padding 0
+#super + i
+#	polybar-msg cmd hide; bspc config top_padding 0
 
 # mostrar barra
-super + u
-	polybar-msg cmd show; bspc config top_padding 36
+#super + u
+#	polybar-msg cmd show; bspc config top_padding 36
 
 #
 # state/flags

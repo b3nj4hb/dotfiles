@@ -80,10 +80,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 	git
 	zsh-autosuggestions
-	zsh-syntax-highlighting
+#	zsh-syntax-highlighting
+	
 )
 
 source $ZSH/oh-my-zsh.sh
+source /home/benjadhb/.oh-my-zsh/plugins/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # User configuration
 
