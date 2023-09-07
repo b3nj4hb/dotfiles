@@ -1,6 +1,6 @@
 import:
 # - ~/.config/alacritty/themes/themes/citylights.yaml
-  - ~/.config/alacritty/themes/dracula.yml
+  - ~/.config/alacritty/varios/dracula.yml
 
 #catppuccin
 #  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
