@@ -57,3 +57,18 @@ cd
 cd dotfiles
 cp .p10k.zsh ~/
 cp .zshrc ~/
+
+
+# lockscreen
+git clone https://github.com/Raymo111/i3lock-color.git
+paru -S autoconf cairo fontconfig gcc libev libjpeg-turbo libxinerama libxkbcommon-x11 libxrandr pam pkgconf xcb-util-image xcb-util-xrm -y --noconfirm
+cd i3lock-color
+chmod +x install-i3lock-color.sh
+./install-i3lock-color.sh
+# ejemplo en example
+cd
+mkdir .config/i3-lock-color
+nano .config/i3-lock-color/lock.sh
+chmod +x .config/i3-lock-color/lock.sh
+.config/i3-lock-color/lock.sh
+nano .config/sxhkd/sxhkdrc

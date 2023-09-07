@@ -47,7 +47,7 @@ ctrl + alt {plus,minus,t}
 
 # lockscreen
 super + x
-	slock
+	~/.config/i3-lock-color/lock.sh
 
 #
 # bspwm hotkeys
