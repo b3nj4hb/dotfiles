@@ -80,12 +80,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 	git
 	zsh-autosuggestions
-#	zsh-syntax-highlighting
-	
+	zsh-syntax-highlighting	
 )
 
 source $ZSH/oh-my-zsh.sh
-source /home/benjadhb/.oh-my-zsh/plugins/catppuccin_mocha-zsh-syntax-highlighting.zsh
+#source /home/benjadhb/.oh-my-zsh/plugins/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -116,6 +115,7 @@ alias ls='lsd --group-directories-first --date=relative --color never'
 alias ll='lsd -l --group-directories-first --date=relative --color never'
 alias pentaho='./Downloads/data-integration/spoon.sh start 2&1 > /dev/null &'
 alias wthit='xprop WM_CLASS'
+alias color='slickpicker'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
