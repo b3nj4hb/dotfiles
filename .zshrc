@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -111,11 +111,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='lsd --group-directories-first --date=relative --color never'
-alias ll='lsd -l --group-directories-first --date=relative --color never'
-alias pentaho='./Downloads/data-integration/spoon.sh start 2&1 > /dev/null &'
+#alias ls='lsd --group-directories-first --date=relative --color never'
+#alias ll='lsd -l --group-directories-first --date=relative --color never'
+alias ls='lsd --group-directories-first --date=relative'
+alias ll='lsd -l --group-directories-first --date=relative'
+#alias pentaho='./Downloads/data-integration/spoon.sh start 2&1 > /dev/null &'
 alias wthit='xprop WM_CLASS'
 alias color='slickpicker'
+alias volumen='pulsemixer'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2023-09-18 03:13:01
+export PATH="$PATH:/home/benjadhb/.local/bin"

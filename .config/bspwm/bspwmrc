@@ -1,5 +1,6 @@
 #! /bin/sh
 $HOME/.config/polybar/launch.sh
+#$HOME/.config/i3-lock-color/autolock.sh
 
 #󰑊
 bspc monitor eDP -d . . . . .
@@ -21,8 +22,9 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a slickpicker state=floating
+bspc rule -a lxappearance state=floating
 
-#processes=("picom" "polybar" "eww" "sxhkd" "dunst")
+#processes=("picom" "polybar" "eww" "sxhkd" "dunst" "xautolock")
 processes=("picom" "eww" "sxhkd" "dunst")
 for process in "${processes[@]}"; do
   if pidof -q "$process"; then
@@ -32,6 +34,8 @@ done
 
 #polybar example &
 dunst &
-feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/nord &
+feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/wallpaper &
 picom --config /home/benjadhb/.config/picom/picom.conf.example &
 sxhkd
+
+;$HOME/.config/i3-lock-color/autolock.sh
