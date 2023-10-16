@@ -1,0 +1,74 @@
+# instalar git
+sudo pacman -S git --noconfirm
+
+# instalar paru
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si --noconfirm
+cd ..
+rm -fr paru
+
+# instalar bspwm, polybar y alacritty
+paru -S bspwm polybar alacritty sxhkd --noconfirm
+
+# para luego de la instalacion
+dhcpd
+
+# varios
+paru -S brave-bin spotify-launcher visual-studio-code-bin github-cli obsidian obs-studio xreader dbeaver btop --noconfirm
+
+# dependencias
+paru -S unzip cava tty-clock pipes.sh rofi rofi-power-menu xcowsay pulsemixer slickpicker arandr lxappearance picom pamixer brightnessctl alsa-utils xclip scrot feh dunst physlock xkill-shortcut ranger thunar dolphin vlc lsd xdg-user-dirs
+--noconfirm
+
+# no cambiar hora
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+# dotfiles
+cd
+git clone https://github.com/b3nj4hb/dotfiles.git
+cd dotfiles
+cp -r .config/ /home/benjadhb/
+cp -r ~/dotfiles/misc/wallpaper/ ~/Pictures/nord
+mkdir ~/Pictures/ScreenShots
+cd
+
+# letras
+# Hack Nerd Font;ShureTechMono Nerd Font
+cd ~/.Downloads
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/ShareTechMono.zip
+unzip -o Hack.zip
+unzip -o ShareTechMono.zip
+sudo cp *.ttf /usr/share/fonts/TTF/
+
+# zsh
+paru -S zsh --noconfirm
+cd
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# p10k 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# extensiones
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+cd
+cd dotfiles
+cp .p10k.zsh ~/
+cp .zshrc ~/
+
+
+# lockscreen
+git clone https://github.com/Raymo111/i3lock-color.git
+paru -S autoconf cairo fontconfig gcc libev libjpeg-turbo libxinerama libxkbcommon-x11 libxrandr pam pkgconf xcb-util-image xcb-util-xrm -y --noconfirm
+cd i3lock-color
+chmod +x install-i3lock-color.sh
+./install-i3lock-color.sh
+# ejemplo en example
+cd
+mkdir .config/i3-lock-color
+nano .config/i3-lock-color/lock.sh
+chmod +x .config/i3-lock-color/lock.sh
+.config/i3-lock-color/lock.sh
+nano .config/sxhkd/sxhkdrc
