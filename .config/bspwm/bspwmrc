@@ -4,9 +4,11 @@ $HOME/.config/polybar/launch.sh
 
 #󰑊
 bspc monitor eDP -d . . . . .
+#bspc monitor eDP -d . . . . . . . . . .
 bspc monitor HDMI-A-0 -d . . . . .
 
-bspc config border_width        2
+#bspc config border_width        2
+bspc config border_width        0
 bspc config window_gap          6
 
 bspc config split_ratio          0.50
@@ -40,3 +42,5 @@ picom --config /home/benjadhb/.config/picom/picom.conf.example &
 sxhkd
 
 ;$HOME/.config/i3-lock-color/autolock.sh
+# autolcok con xss-lock y el script de i3 autolock color
+xss-lock -- lock.sh -l

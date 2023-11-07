@@ -46,7 +46,9 @@ fade-exclude = [
 #   Transparency / Opacity      #
 #################################
 
-inactive-opacity = 1.0;
+menu-opacity = 0.9;
+frame-opacity = 0.9;
+inactive-opacity = 0.5;
 active-opacity = 1.0
 inactive-opacity-override = false;
 
@@ -59,24 +61,25 @@ opacity-rule = [
   "100:class_g = 'Alacritty'",
   "100:class_g = 'FloaTerm'",
   "95:class_g = 'Updating'",
-  "90:class_g = 'scratch'"
+  "90:class_g = 'scratch'",
+  "100:class_g = 'polybar'"
 ];
 
 #################################
 #           Corners             #
 #################################
 
-corner-radius = 6
+corner-radius = 8
 
 rounded-corners-exclude = [
   "window_type = 'dropdown_menu'",
   "window_type = 'popup_menu'",
   "window_type = 'popup'",
   "window_type = 'dock'",
-  "class_g = 'Polybar'",
+  #"class_g = 'Polybar'",
   "class_g = 'eww-bar'",
   "class_g = 'Viewnior'",
-  "class_g = 'Rofi'",
+  #"class_g = 'Rofi'",
   "class_g = 'mpv'",
   "class_g = 'retroarch'"
 ];
@@ -111,4 +114,15 @@ wintypes:
   tooltip = { fade = false; shadow = false; focus = true; full-shadow = false; }
   dock = { shadow = false; clip-shadow-above = true; }
   dnd = { shadow = false; }
+};
+
+#################################
+#          Blur			#
+#################################
+
+blur:
+{
+method = "gaussian";
+size = 15; 
+deviation = 15;
 };
