@@ -4,8 +4,8 @@
 
 shadow = false;
 
-shadow-radius = 7;
-shadow-opacity = 0.50
+shadow-radius = 5;
+shadow-opacity = 0.70
 shadow-offset-x = -2;
 shadow-offset-y = -2;
 
@@ -123,6 +123,14 @@ wintypes:
 blur:
 {
 method = "gaussian";
-size = 15; 
-deviation = 15;
+size = 10; 
+deviation = 5;
 };
+
+# Exclude conditions for background blur.
+# blur-background-exclude = []
+blur-background-exclude = [
+  "window_type = 'dock'",
+  "window_type = 'desktop'",
+  "_GTK_FRAME_EXTENTS@:c"
+];

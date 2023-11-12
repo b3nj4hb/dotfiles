@@ -85,9 +85,14 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# rotate nodes in a desktop
+super + shift { v,b }
+  bspc node @/ -R {90,270}
+
 # cambiar wallpaper
 super + alt + w
-	feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/nord
+	feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/wallpaper
+#	feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/nord
 
 # screenshot de toda la pantalla a un directorio
 shift + Print
