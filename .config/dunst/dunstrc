@@ -1,0 +1,22 @@
+[global]
+frame_color = "#28a8ea"
+separator_color= frame
+
+[urgency_low]
+background = "#151515"
+foreground = "#f8f8f2"
+
+[urgency_normal]
+background = "#151515"
+foreground = "#f8f8f2"
+
+[urgency_critical]
+background = "#151515"
+foreground = "#f8f8f2"
+frame_color = "#ff0000"
+
+#geometry = "0x0-30+20"
+
+;font = Hack Nerd Font 10
+font = ShureTechMono Nerd Font 10
+markup = full
