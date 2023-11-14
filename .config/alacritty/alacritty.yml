@@ -18,7 +18,7 @@ window:
 
   opacity: 1.0
   dynamic_title: true
-  
+
   history: 10000
   multiplier: 3
 

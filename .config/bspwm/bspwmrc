@@ -3,8 +3,8 @@ $HOME/.config/polybar/launch.sh
 #$HOME/.config/i3-lock-color/autolock.sh
 
 #󰑊
-bspc monitor eDP -d . . . . .
-#bspc monitor eDP -d . . . . . . . . . .
+#bspc monitor eDP -d . . . . .
+bspc monitor eDP -d . . . . . . . . . .
 bspc monitor HDMI-A-0 -d . . . . .
 
 #bspc config border_width        2
