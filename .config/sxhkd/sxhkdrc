@@ -27,9 +27,8 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # aplicaciones
-alt + shift + {b,p,t,w,s,l}
+alt + shift + {b,t,w,s,l}
 	{brave,\
-	pavucontrol,\
 	thunar,\
 	whatsapp-nativefier,\
 	spotify-launcher,\
@@ -85,7 +84,7 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-# rotate nodes in a desktop
+# rotate nodes in a desktop reloj, hoja, rotar
 super + shift { v,b }
   bspc node @/ -R {90,270}
 
@@ -227,3 +226,7 @@ XF86AudioMute
 # Mute/unmute microphone
 XF86AudioMicMute
     amixer -q sset Capture toggle; #dunstify -u low "Microphone muted/unmuted"
+
+# para arreglar las cosas locas de polybar
+alt + shift + p
+	bspc config top_padding 0;bspc config bottom_padding 0
