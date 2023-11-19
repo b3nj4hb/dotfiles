@@ -37,7 +37,8 @@ done
 
 #polybar example &
 dunst &
-feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/wallpaper &
+#feh -z --no-fehbg --bg-fill /home/benjadhb/Pictures/wallpaper &
+feh -z --nofehbg --bg-fill /home/benjadhb/Pictures/wallpaper/wallhaven-0qz96q.jpg
 picom --config /home/benjadhb/.config/picom/picom.conf.example &
 sxhkd
 
