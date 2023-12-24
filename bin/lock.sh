@@ -1,33 +1,37 @@
 #!/bin/sh
 # i3 autolock color
 
-BLANK='#00000000'
-CLEAR='#ffffff22'
-DEFAULT='#28a8ea'
-TEXT='#28a8ea'
-WRONG='#ff0000'
-VERIFYING='#28a8ea'
-NEGRO='#131313'
+#TRANSPARENTE='#00000000'
+#CLEAR='#ffffff22'
+negro=#131313
+amarillo=#fac01d
+azul=#28a8ea
+naranja=#f67a44
+blanco=#f8f8f2
+gris=#707880
+verde=#0dc143
+morado=#774ad7
+rojo=#ff0000
 
 i3lock \
---insidever-color=$CLEAR     \
---ringver-color=$VERIFYING   \
+--insidever-color=$negro     \
+--ringver-color=$azul   \
 \
---insidewrong-color=$CLEAR   \
---ringwrong-color=$WRONG     \
+--insidewrong-color=$negro   \
+--ringwrong-color=$rojo     \
 \
---inside-color=$NEGRO        \
---ring-color=$DEFAULT        \
---line-color=$BLANK          \
---separator-color=$DEFAULT   \
+--inside-color=$negro        \
+--ring-color=$amarillo        \
+--line-color=$rojo          \
+--separator-color=$azul   \
 \
---verif-color=$TEXT          \
---wrong-color=$TEXT          \
---time-color=$TEXT           \
---date-color=$TEXT           \
---layout-color=$TEXT         \
---keyhl-color=$WRONG         \
---bshl-color=$WRONG          \
+--verif-color=$azul          \
+--wrong-color=$azul          \
+--time-color=$azul           \
+--date-color=$azul           \
+--layout-color=$azul         \
+--keyhl-color=$blanco         \
+--bshl-color=$azul          \
 \
 --screen 1                   \
 --blur 6                     \
